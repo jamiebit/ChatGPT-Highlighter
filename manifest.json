@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Highlighter",
+  "version": "1.0",
+  "description": "Right-click highlighted text to ask ChatGPT about it.",
+  "permissions": ["contextMenus", "scripting", "activeTab", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "ChatGPT Highlighter"
+  }
+}
