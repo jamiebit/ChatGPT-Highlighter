@@ -8,7 +8,13 @@
   "background": {
     "service_worker": "background.js"
   },
+  "icons": {
+    "16":"icon16.png"
+  },
   "action": {
-    "default_title": "ChatGPT Highlighter"
+    "default_title": "ChatGPT Highlighter",
+    "default_icon": {
+      "16": "icon16.png"
+    }
   }
 }
