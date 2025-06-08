@@ -6,12 +6,38 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-chrome.contextMenus.onClicked.addListener((info, tab) => {
+// Function to check if user is logged into ChatGPT
+async function isUserLoggedIn() {
+  try {
+    const response = await fetch("https://chat.openai.com/api/auth/session", {
+      credentials: "include"
+    });
+
+    if (response.status === 200) {
+      const data = await response.json();
+      return !!data.user;
+    }
+  } catch (error) {
+    console.error("Failed to check ChatGPT login:", error);
+  }
+  return false;
+}
+
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "askChatGPT" && info.selectionText) {
-    const query = encodeURIComponent(info.selectionText);
-    const prompt = encodeURIComponent(`Can you explain this: "${info.selectionText}" like I'm 5?`);
+    const loggedIn = await isUserLoggedIn();
+
+    const promptText = `Explain "${info.selectionText}" simply and briefly.`;
+    await chrome.storage.local.set({ pendingPrompt: promptText });
+    console.log("Prompt saved:", promptText);
+
+    if (!loggedIn) {
+      chrome.tabs.create({ url: "https://chatgpt.com/auth/login" });
+      return;
+    }
+
     chrome.tabs.create({
-      url: `https://chat.openai.com/?prompt=${prompt}`
+      url: `https://chat.openai.com/?prompt=${encodeURIComponent(promptText)}`
     });
   }
 });

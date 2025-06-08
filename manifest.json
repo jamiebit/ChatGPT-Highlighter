@@ -3,8 +3,8 @@
   "name": "ChatGPT Highlighter",
   "version": "1.0",
   "description": "Right-click highlighted text to ask ChatGPT about it.",
-  "permissions": ["contextMenus", "scripting", "activeTab", "tabs"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": ["contextMenus", "scripting", "activeTab", "tabs", "storage"],
+  "host_permissions": ["<all_urls>", "https://chat.openai.com/*", "https://chatgpt.com/*"],
   "background": {
     "service_worker": "background.js"
   },
@@ -16,5 +16,12 @@
     "default_icon": {
       "16": "icon16.png"
     }
+  },
+  "content_scripts": [
+  {
+    "matches": ["https://chatgpt.com/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
   }
+]
 }
