@@ -3,7 +3,7 @@
   "name": "HighlightAI",
   "version": "1.0.0",
   "description": "Quickly search highlighted text in ChatGPT using a simple right-click.",
-  "permissions": ["contextMenus","tabs", "storage"],
+  "permissions": ["contextMenus","storage"],
   "background": {
     "service_worker": "background.js"
   },
