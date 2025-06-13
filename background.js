@@ -29,7 +29,11 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 
     const promptText = `Explain "${info.selectionText}" simply and briefly.`;
     await chrome.storage.local.set({ pendingPrompt: promptText });
-    console.log("Prompt saved:", promptText);
+
+    // Set a failsafe timeout to remove the prompt after 2 minute
+    setTimeout(() => {
+      chrome.storage.local.remove("pendingPrompt");
+    }, 120000);
 
     if (!loggedIn) {
       chrome.tabs.create({ url: "https://chatgpt.com/auth/login" });

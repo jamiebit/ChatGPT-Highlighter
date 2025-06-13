@@ -1,20 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "ChatGPT Highlighter",
-  "version": "1.0",
-  "description": "Right-click highlighted text to ask ChatGPT about it.",
-  "permissions": ["contextMenus", "scripting", "activeTab", "tabs", "storage"],
-  "host_permissions": ["<all_urls>", "https://chat.openai.com/*", "https://chatgpt.com/*"],
+  "name": "HighlightAI",
+  "version": "1.0.0",
+  "description": "Quickly search highlighted text in ChatGPT using a simple right-click.",
+  "permissions": ["contextMenus","tabs", "storage"],
   "background": {
     "service_worker": "background.js"
   },
   "icons": {
-    "16":"icon16.png"
+    "16":"icon16.png",
+    "48":"icon.png",
+    "128":"icon128.png"
   },
   "action": {
     "default_title": "ChatGPT Highlighter",
     "default_icon": {
-      "16": "icon16.png"
+      "16": "icon16.png",
+      "48":"icon.png",
+      "128":"icon128.png"
     }
   },
   "content_scripts": [
