@@ -13,7 +13,8 @@
     "128":"icon128.png"
   },
   "action": {
-    "default_title": "ChatGPT Highlighter",
+    "default_popup":"popup.html",
+    "default_title": "HighlightAI",
     "default_icon": {
       "16": "icon16.png",
       "48":"icon.png",
