@@ -10,7 +10,10 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "askChatGPT" && info.selectionText) {
 
-    const promptText = `Explain "${info.selectionText}" simply and briefly.`;
+    //const promptText = `Explain "${info.selectionText}" simply and briefly.`;
+
+    const { customPrompt } = await chrome.storage.sync.get("customPrompt");
+    const promptText = (customPrompt || "Explain briefly") + ' : ' + info.selectionText
     await chrome.storage.local.set({ pendingPrompt: promptText });
 
     // Set a failsafe timeout to remove the prompt after 2 minute
