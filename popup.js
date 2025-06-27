@@ -1,4 +1,5 @@
 const DEFAULT_PROMPT = "Explain briefly";
+const originalText = "Submit";
 
 // Restore settings on popup load
 document.addEventListener("DOMContentLoaded", () => {
@@ -8,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("submitBtn").addEventListener("click", () => {
+    submitBtn.disabled = true;
+    //submitBtn.textContent = "Submitting"
     const toggleValue = document.getElementById("inter").checked;
     const promptValue = document.getElementById("promptInput").value || DEFAULT_PROMPT;
 
@@ -15,7 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
       inter: toggleValue,
       customPrompt: promptValue
     }, () => {
+      submitBtn.textContent = "Saved!"
       console.log("Settings saved.");
+
+      setTimeout(()=>{
+        window.close();
+      },800)
     });
   });
 });
