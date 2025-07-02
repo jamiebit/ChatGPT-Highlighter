@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "HighlightAI",
+  "name":"Pythia : Your Oracle to GPT",
   "version": "1.0.0",
-  "description": "Quickly search highlighted text in ChatGPT using a simple right-click.",
+  "description": "Instantly send highlighted text to ChatGPT and get quick explanations, summaries, or answers",
   "permissions": ["contextMenus","storage"],
   "background": {
     "service_worker": "background.js"
