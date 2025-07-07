@@ -1,31 +1,38 @@
 {
   "manifest_version": 3,
-  "name":"Pythia : Your Oracle to GPT",
-  "version": "1.0.0",
+  "name": "Pythia : Your Oracle to GPT",
+  "version": "1.1.0",
   "description": "Instantly send highlighted text to ChatGPT and get quick explanations, summaries, or answers",
-  "permissions": ["contextMenus","storage"],
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
   "background": {
     "service_worker": "background.js"
   },
   "icons": {
-    "16":"icon16.png",
-    "48":"icon.png",
-    "128":"icon128.png"
+    "16": "icon16.png",
+    "48": "icon.png",
+    "128": "icon128.png"
   },
   "action": {
-    "default_popup":"popup.html",
-    "default_title": "HighlightAI",
+    "default_popup": "popup.html",
+    "default_title": "Pythia : Your Oracle to GPT",
     "default_icon": {
       "16": "icon16.png",
-      "48":"icon.png",
-      "128":"icon128.png"
+      "48": "icon.png",
+      "128": "icon128.png"
     }
   },
   "content_scripts": [
-  {
-    "matches": ["https://chatgpt.com/*"],
-    "js": ["content.js"],
-    "run_at": "document_idle"
-  }
-]
+    {
+      "matches": [
+        "https://chatgpt.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
 }

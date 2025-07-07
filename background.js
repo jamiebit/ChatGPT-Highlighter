@@ -4,13 +4,18 @@ chrome.runtime.onInstalled.addListener(() => {
     title: "Ask ChatGPT about this",
     contexts: ["selection"]
   });
-});
+
+  chrome.storage.sync.get(["inter"], (data) => {
+    if (data.inter === undefined) {
+      chrome.storage.sync.set({ inter: true });
+    }
+  })
+}
+);
 
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "askChatGPT" && info.selectionText) {
-
-    //const promptText = `Explain "${info.selectionText}" simply and briefly.`;
 
     const { customPrompt } = await chrome.storage.sync.get("customPrompt");
     const promptText = (customPrompt || "Explain briefly") + ' : ' + info.selectionText
@@ -20,7 +25,6 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     setTimeout(() => {
       chrome.storage.local.remove("pendingPrompt");
     }, 120000);
-
 
     // if user is already logged in, it automatically redirects to chatgpt page
     chrome.tabs.create({ url: "https://chatgpt.com/auth/login" });

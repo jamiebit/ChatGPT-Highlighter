@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="popup.css">
   <title>Document</title>
 </head>
+
 <body>
   <div class="container">
     <div class="icon">
@@ -17,38 +21,39 @@
 
     <div class="bodyContainer">
       <div class="toggleBody">
-      <div class="subtitle">
-        Auto-submit
+        <div class="subtitle">
+          Auto-submit
+        </div>
+        <div class="neubutton" id="outer">
+          <input type="checkbox" id="inter" class="cb" checked>
+          <label class="toggle" for="inter">
+            <div class="toggle-inner"></div>
+          </label>
+        </div>
       </div>
-      <div class="neubutton" id="outer">
-        <input type="checkbox" id="inter" class="cb" checked>
-        <label class="toggle" for="inter">
-          <div class="toggle-inner"></div>
-        </label>
-     </div>
-    </div>
-    <div class="explanation">
-      Automatically submits the prompt without clicking
-     </div>
-
-    <div class="contentBody">
-      <div class="subtitle" style="padding-bottom: 5px;">
-        Prompt text
+      <div class="explanation">
+        Automatically submits the prompt without clicking
       </div>
-      <div>
-        <input type="text" class="neuContent" placeholder="Enter custom prompt" id="promptInput">
-     </div>
-     <div class="example">
-      Sets the prompt that gets submitted automatically
-     </div>
+
+      <div class="contentBody">
+        <div class="subtitle" style="padding-bottom: 5px;">
+          Prompt text
+        </div>
+        <div>
+          <input type="text" class="neuContent" placeholder="Enter custom prompt" id="promptInput">
+        </div>
+        <div class="example">
+          Sets the prompt that gets submitted automatically
+        </div>
+      </div>
+
+      <div class="submitBody">
+        <button class="submitBtn" id="submitBtn">Submit</button>
+      </div>
     </div>
 
-    <div class="submitBody">
-      <button class="submitBtn" id="submitBtn">Submit</button>
-    </div>
-    </div>
-    
   </div>
   <script src="popup.js"></script>
 </body>
+
 </html>
